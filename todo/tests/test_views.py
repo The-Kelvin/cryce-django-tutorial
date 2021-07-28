@@ -10,11 +10,11 @@ class TestViews(TestSetup):
 
     def test_should_create_a_todo(self):
 
-        user = self.create_test_user()
+        user = self.create_verified_test_user()
 
         self.client.post(reverse("login"), {
             'username': user.username,
-            'password': 'password12!'
+            'password': 'password123!'
         })
 
         todo = Todo.objects.all()
@@ -26,8 +26,6 @@ class TestViews(TestSetup):
             "title": "Hello todo from tests",
             "description": "Remember to do this"
         })
-
-        print(response)
 
         todos = Todo.objects.all()
 

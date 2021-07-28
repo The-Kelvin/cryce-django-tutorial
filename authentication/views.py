@@ -120,14 +120,14 @@ def login_user(request):
 
         user = authenticate(request, username=username, password=password)
 
-        if user and not user.is_email_verified:
-            messages.add_message(request, messages.ERROR,
-                                 'Email is not verified, please check your email inbox')
-            return render(request, 'authentication/login.html', context, status=401)
-
         if not user:
             messages.add_message(request, messages.ERROR,
                                  'Invalid credentials, try again')
+            return render(request, 'authentication/login.html', context, status=401)
+
+        if not user.is_email_verified:
+            messages.add_message(request, messages.ERROR,
+                                 'Email is not verified, please check your email inbox')
             return render(request, 'authentication/login.html', context, status=401)
 
         login(request, user)

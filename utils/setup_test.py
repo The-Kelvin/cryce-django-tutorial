@@ -28,6 +28,15 @@ class TestSetup(TestCase):
         user.save()
 
         return user
+
+    
+    def create_verified_test_user(self):
+        user = User.objects.create_user(
+            username='username32', email='email22@app.com', is_email_verified=True)
+        user.set_password('password123!')
+        user.save()
+
+        return user
     
 
     def tearDown(self):

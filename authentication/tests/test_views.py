@@ -59,10 +59,10 @@ class TestViews(TestSetup):
         self.assertEquals(response.status_code, 409)
 
     def test_should_login_successfully(self):
-        user = self.create_test_user()
+        user = self.create_verified_test_user()
         response = self.client.post(reverse("login"), {
             'username': user.username,
-            'password': 'password12!'
+            'password': 'password123!'
         })
         self.assertEquals(response.status_code, 302)
 
@@ -72,7 +72,7 @@ class TestViews(TestSetup):
                       list(map(lambda x: x.message, storage)))
 
     def test_should_not_login_with_invalid_password(self):
-        user = self.create_test_user()
+        user = self.create_verified_test_user()
         response = self.client.post(reverse("login"), {
             'username': user.username,
             'password': 'password12!32'
