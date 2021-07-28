@@ -1,1 +1,1 @@
-# cryce-django-tutorial
+[![Python application](https://github.com/The-Kelvin/cryce-django-tutorial/actions/workflows/python-app.yml/badge.svg)](https://github.com/The-Kelvin/cryce-django-tutorial/actions/workflows/python-app.yml) [![codecov](https://codecov.io/gh/The-Kelvin/cryce-django-tutorial/branch/main/graph/badge.svg?token=S3RSLM598L)](https://codecov.io/gh/The-Kelvin/cryce-django-tutorial)
