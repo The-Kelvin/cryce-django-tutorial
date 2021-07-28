@@ -9,7 +9,7 @@ class TestModels(TestSetup):
 
     def test_should_create_todo(self):
 
-        user = self.creat_test_user()
+        user = self.create_test_user()
 
         todo = Todo(owner=user, title="Buy milk", description="Get it done")
 
