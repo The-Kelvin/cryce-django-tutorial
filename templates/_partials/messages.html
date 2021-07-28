@@ -1,0 +1,14 @@
+<!-- check if there are messages -->
+{% if messages %}
+
+<!-- If there are messages, loop through them and display them in alist -->
+{% for message in messages %}
+
+<div class="ui {{message.tags}} message">
+    {{message}}
+</div>
+
+{% endfor %}
+
+
+{% endif %}
