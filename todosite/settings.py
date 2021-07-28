@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import sys
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -140,16 +141,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Set during deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Static files directory to alter django's default behavior
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'todosite/static')]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Static files directory to alter django's default behavior
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'todosite/static')]
 
 
-# Email_from setting
+# Email_from setting /
 
 # EMAIL_FROM_USER = os.environ.get('EMAIL_FROM_USER')
 # EMAIL_HOST = 'smtp.gmail.com'
@@ -164,3 +169,7 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_FROM_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+
+
+
+django_heroku.settings(locals())
