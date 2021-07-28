@@ -140,13 +140,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Set during deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Static files directory to alter django's default behavior
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'todosite/static')]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Static files directory to alter django's default behavior
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'todosite/static')]
 
 
 # Email_from setting
